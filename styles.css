@@ -106,10 +106,11 @@ nav {
 }
 
 .nav-logo {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 38px;
+  font-weight: 300;
   color: var(--text);
-  letter-spacing: -0.01em;
+  display: inline-block;
+  transform: rotate(90deg);
 }
 
 .nav-links {
