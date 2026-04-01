@@ -4,8 +4,8 @@ const CONTENT = {
   location: "Pune, India",
   email: "shantanutapole@gmail.com",
   phone: "+91 7756876701",
-  github: "https://github.com/shantanutapole",
-  linkedin: "https://linkedin.com/in/shantanutapole",
+  github: "https://github.com/ShantanuT246",
+  linkedin: "https://www.linkedin.com/in/shantanu-tapole-482580322/",
 
   about:
     "I'm a Second-year CS student at VIT Vellore (CGPA 8.77). I've shipped code across three internships — building a multi-feature deepfake detection pipeline at GenReal.AI, a chart generation backend at Scientiow, and ABAP data processing programs at ITTI.",
