@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shantanu Tapole — Portfolio</title>
+  <meta name="description" content="Shantanu Tapole — CS Engineer, AI & Backend Developer. Personal portfolio showcasing experience, projects, and skills." />
+  <meta property="og:title" content="Shantanu Tapole — Portfolio" />
+  <meta property="og:description" content="CS Engineer · AI & Backend Developer based in Pune, India." />
+  <meta property="og:type" content="website" />
+  <!-- Icons -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="content.js"></script>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo" id="nav-logo"></span>
+      <ul class="nav-links" id="nav-links"></ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="nav-mobile" id="nav-mobile"></nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        <span>Open to opportunities</span>
+      </div>
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <div class="hero-location" id="hero-location">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="hero-ctas" id="hero-ctas"></div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <p class="about-text fade-up" id="about-text"></p>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Experience</p>
+      <div class="timeline" id="experience-list"></div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Projects</p>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Skills</p>
+      <div class="skills-grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label">Education</p>
+      <div id="education-list"></div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section id="certifications">
+    <div class="container">
+      <p class="section-label">Certifications</p>
+      <ul class="cert-list" id="cert-list"></ul>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="contact-heading">Let's connect.</h2>
+      <p class="contact-sub">Whether it's an opportunity, a project, or just a hello — my inbox is open.</p>
+      <div class="contact-links" id="contact-links"></div>
+      <div class="footer-bar">
+        <span class="footer-copy" id="footer-copy"></span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // ── ICONS ────────────────────────────────────────────────────
+    const icon = {
+      github: `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>`,
+      linkedin: `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+      email: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+      copy: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+      external: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
+      location: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+      phone: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.88-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+    };
+
+    // ── NAV ──────────────────────────────────────────────────────
+    const navSections = ["about", "experience", "projects", "skills", "education", "certifications", "contact"];
+    const navLogoEl = document.getElementById("nav-logo");
+    const navLinksEl = document.getElementById("nav-links");
+    const navMobileEl = document.getElementById("nav-mobile");
+
+    navLogoEl.textContent = CONTENT.name.split(" ")[0];
+
+    navSections.forEach((id) => {
+      const label = id.charAt(0).toUpperCase() + id.slice(1);
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="#${id}">${label}</a>`;
+      navLinksEl.appendChild(li);
+      navMobileEl.insertAdjacentHTML("beforeend", `<a href="#${id}">${label}</a>`);
+    });
+
+    // ── HERO ─────────────────────────────────────────────────────
+    document.getElementById("hero-name").textContent = CONTENT.name;
+    document.getElementById("hero-tagline").textContent = CONTENT.tagline;
+    const locationEl = document.getElementById("hero-location");
+    locationEl.innerHTML = `${icon.location} ${CONTENT.location}`;
+
+    const ctas = document.getElementById("hero-ctas");
+    ctas.innerHTML = `
+      <a href="${CONTENT.github}" target="_blank" rel="noopener" class="btn btn-primary">
+        ${icon.github} GitHub
+      </a>
+      <a href="${CONTENT.linkedin}" target="_blank" rel="noopener" class="btn btn-secondary">
+        ${icon.linkedin} LinkedIn
+      </a>
+      <button id="copy-email" class="btn btn-secondary">
+        ${icon.email} ${CONTENT.email}
+      </button>`;
+
+    // ── ABOUT ────────────────────────────────────────────────────
+    document.getElementById("about-text").textContent = CONTENT.about;
+
+    // ── EXPERIENCE ───────────────────────────────────────────────
+    const expList = document.getElementById("experience-list");
+    CONTENT.experience.forEach((job) => {
+      expList.insertAdjacentHTML("beforeend", `
+        <div class="timeline-item fade-up">
+          <div class="timeline-header">
+            <span class="timeline-company">${job.company}</span>
+            <span class="timeline-period">${job.period}</span>
+          </div>
+          <p class="timeline-role">${job.role} · ${job.type}</p>
+          <ul class="timeline-bullets">
+            ${job.bullets.map((b) => `<li>${b}</li>`).join("")}
+          </ul>
+        </div>`);
+    });
+
+    // ── EDUCATION ────────────────────────────────────────────────
+    const eduList = document.getElementById("education-list");
+    CONTENT.education.forEach((edu) => {
+      eduList.insertAdjacentHTML("beforeend", `
+        <div class="edu-card fade-up">
+          <div>
+            <p class="edu-institution">${edu.institution}</p>
+            <p class="edu-degree">${edu.degree}</p>
+            <span class="edu-grade">${edu.grade}</span>
+          </div>
+          <div>
+            <p class="edu-period">${edu.period}</p>
+            <p style="font-size:12px;color:var(--text-tertiary);margin-top:4px;">${edu.location}</p>
+          </div>
+        </div>`);
+    });
+
+    // ── PROJECTS ─────────────────────────────────────────────────
+    const projGrid = document.getElementById("projects-grid");
+    CONTENT.projects.forEach((proj) => {
+      const linkAttr = proj.link && proj.link !== "#"
+        ? `href="${proj.link}" target="_blank" rel="noopener"`
+        : "";
+      projGrid.insertAdjacentHTML("beforeend", `
+        <${proj.link ? "a" : "div"} ${linkAttr} class="project-card fade-up">
+          <div class="project-header">
+            <p class="project-title">${proj.title}</p>
+            ${proj.link && proj.link !== "#" ? `<span class="project-link-icon">${icon.external}</span>` : ""}
+          </div>
+          <p class="project-desc">${proj.description}</p>
+          ${proj.badge ? `<span class="project-badge">${proj.badge}</span>` : ""}
+          <div class="project-tech">
+            ${proj.tech.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
+          </div>
+        </${proj.link ? "a" : "div"}>`);
+    });
+
+    // ── SKILLS ───────────────────────────────────────────────────
+    const skillsGrid = document.getElementById("skills-grid");
+    Object.entries(CONTENT.skills).forEach(([group, tags]) => {
+      skillsGrid.insertAdjacentHTML("beforeend", `
+        <div class="fade-up">
+          <p class="skill-group-label">${group}</p>
+          <div class="skill-tags">
+            ${tags.map((t) => `<span class="skill-tag">${t}</span>`).join("")}
+          </div>
+        </div>`);
+    });
+
+    // ── LANGUAGES (appended to skills section) ───────────────────
+    const langGroup = document.createElement("div");
+    langGroup.className = "fade-up";
+    langGroup.innerHTML = `
+      <p class="skill-group-label">Languages</p>
+      <div class="skill-tags">
+        ${CONTENT.languages.map((l) =>
+          `<span class="skill-tag">${l.name}
+            <span class="lang-level ${l.level === 'Beginner' ? 'lang-beginner' : 'lang-fluent'}">${l.level}</span>
+          </span>`
+        ).join("")}
+      </div>`;
+    document.getElementById("skills-grid").appendChild(langGroup);
+
+    // ── CERTIFICATIONS ───────────────────────────────────────────
+    const certList = document.getElementById("cert-list");
+    CONTENT.certifications.forEach((cert) => {
+      certList.insertAdjacentHTML("beforeend", `
+        <li class="cert-item fade-up">
+          <span class="cert-name">${cert.name}</span>
+          <span class="cert-meta">
+            <span class="cert-issuer">${cert.issuer}</span>
+            <span class="cert-date">${cert.date}</span>
+          </span>
+        </li>`);
+    });
+
+    // ── CONTACT ──────────────────────────────────────────────────
+    const contactLinks = document.getElementById("contact-links");
+    contactLinks.innerHTML = `
+      <button id="copy-email" class="contact-link">
+        ${icon.email} ${CONTENT.email}
+      </button>
+      <a href="${CONTENT.github}" target="_blank" rel="noopener" class="contact-link">
+        ${icon.github} GitHub
+      </a>
+      <a href="${CONTENT.linkedin}" target="_blank" rel="noopener" class="contact-link">
+        ${icon.linkedin} LinkedIn
+      </a>
+      <a href="tel:${CONTENT.phone}" class="contact-link">
+        ${icon.phone} ${CONTENT.phone}
+      </a>`;
+
+    const year = new Date().getFullYear();
+    document.getElementById("footer-copy").textContent = `© ${year} ${CONTENT.name}`;
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
